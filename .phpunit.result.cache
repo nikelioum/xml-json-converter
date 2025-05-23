@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"ConverterTest::testXmlToJsonAndBack":0.00200000000000000004163336342344337026588618755340576171875,"JsonToXmlConverterTest::testConvertValidJson":0,"JsonToXmlConverterTest::testConvertInvalidJsonThrowsException":0,"XmlToJsonConverterTest::testConvertValidXml":0,"XmlToJsonConverterTest::testConvertInvalidXmlThrowsException":0}}

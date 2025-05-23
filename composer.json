@@ -1,0 +1,21 @@
+{
+    "name": "nikelioum/xml-json-converter",
+    "description": "A PHP package to convert XML to JSON and JSON to XML easily and reliably.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dliaropoulos\\XmlJsonConverter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dliaropoulos",
+            "email": "dimliarop@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    }
+}
