@@ -8,15 +8,17 @@ Supports PSR-4 autoloading and works with any PHP project using Composer.
 Require the package via Composer:
 
 ```bash
-composer require dliaropoulos/xml-json-converter
+composer require nikelioum/xml-json-converter:dev-main --with-all-dependencies
+
 ```
 
 
-## Installation Usage
+## Usage
 
 require 'vendor/autoload.php';
 
-## Usage
+
+
 
 ```php
 require 'vendor/autoload.php';
@@ -24,20 +26,28 @@ require 'vendor/autoload.php';
 use Nikelioum\XmlJsonConverter\JsonToXmlConverter;
 use Nikelioum\XmlJsonConverter\XmlToJsonConverter;
 
-// Convert JSON to XML
-$json = '{"name": "John", "age": 30}';
+function convertJsonToXml(): string
+{
+    $json = '{"name": "John", "age": 30}';
 
-$converter = new JsonToXmlConverter();
-$xml = $converter->convert($json);
+    $jsonToXml = new JsonToXmlConverter();
+    $xml = $jsonToXml->convert($json);
 
-echo $xml;
+    return $xml;
+}
 
-echo "\n----------------\n";
+function convertXmlToJson(): string
+{
+    $xmlInput = '<person><name>John</name><age>30</age></person>';
 
-// Convert XML to JSON
-$xml = '<person><name>John</name><age>30</age></person>';
+    $xmlToJson = new XmlToJsonConverter();
+    $json = $xmlToJson->convert($xmlInput);
 
-$converter = new XmlToJsonConverter();
-$json = $converter->convert($xml);
+    return $json;
+}
 
-echo $json;
+// Example usage:
+$xmlOutput = convertJsonToXml();
+$jsonOutput = convertXmlToJson();
+
+// You can now return these in an API response, save to file, etc.
