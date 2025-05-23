@@ -28,12 +28,31 @@ use Nikelioum\XmlJsonConverter\XmlToJsonConverter;
 
 function convertJsonToXml(): string
 {
-    $json = '{"name": "John", "age": 30}';
+   $json = json_encode([
+    'orders' => [
+        [
+            'order_id' => 12345,
+            'date' => '2025-05-23',
+            'total' => 31.98,
+            'items' => [
+                ['name' => 'Shirt', 'price' => 15.99],
+                ['name' => 'Hat', 'price' => 8.50]
+            ]
+        ],
+        [
+            'order_id' => 12346,
+            'date' => '2025-05-24',
+            'total' => 8.50,
+            'items' => [
+                ['name' => 'Cap', 'price' => 8.50]
+            ]
+        ]
+    ]
+]);
 
-    $jsonToXml = new JsonToXmlConverter();
-    $xml = $jsonToXml->convert($json);
+$xml = JsonToXmlConverter::convert($json, ['price', 'total'], 'orders');
 
-    return $xml;
+return $xml;
 }
 
 function convertXmlToJson(): string
